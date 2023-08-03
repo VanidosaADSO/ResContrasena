@@ -36,7 +36,7 @@ function App() {
     // Continuar con el proceso de reestablecimiento de contraseña
     const usuario = {
       Contrasena: contrasena,
-      Token: token,
+      token: token,
     };
 
     const url = 'https://api-proyecto-5hms.onrender.com/api/olvidocontrasena';
