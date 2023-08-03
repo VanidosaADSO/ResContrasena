@@ -3,6 +3,7 @@ import logo from './assets/img/logo.svg';
 import './assets/css/Ventas.css';
 
 function App() {
+
   const [token, setToken] = useState('');
   const [contrasena, setContrasena] = useState('');
   const [confirmarContrasena, setConfirmarContrasena] = useState('');
@@ -38,7 +39,7 @@ function App() {
       Token: token,
     };
 
-    const url = 'https://api-proyecto-5hms.onrender.com/api/usuario';
+    const url = 'https://api-proyecto-5hms.onrender.com/api/olvidocontrasena';
 
     fetch(url, {
       method: 'PATCH',
