@@ -35,7 +35,7 @@ function App() {
     // Continuar con el proceso de reestablecimiento de contraseña
     const usuario = {
       Contrasena: contrasena,
-      Token: token, // Agregar el token al objeto
+      Token: token,
     };
 
     const url = 'https://api-proyecto-5hms.onrender.com/api/usuario';
@@ -48,16 +48,21 @@ function App() {
       },
       body: JSON.stringify(usuario)
     })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error en la solicitud');
+        }
+        return response.json();
+      })
       .then(data => {
         // Hacer algo con la respuesta del servidor
         console.log(data);
-        window.alert('Contraseña modificada con éxito.'); // Mostrar una alerta de éxito
+        window.alert('Contraseña modificada con éxito.');
       })
       .catch(error => {
         // Manejar el error de la solicitud
         console.error('Error:', error);
-        window.alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.'); // Mostrar una alerta de error
+        window.alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
       });
   };
   
