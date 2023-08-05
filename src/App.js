@@ -75,6 +75,7 @@ function App() {
           title: '¡Éxito!',
           text: 'Contraseña modificada con éxito.',
         });
+        window.location.href = 'https://vanidosa-spa.onrender.com/';
       })
       .catch(error => {
         // Manejar el error de la solicitud
