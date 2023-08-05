@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './assets/img/logo.svg';
 import './assets/css/Ventas.css';
-
+import Swal from 'sweetalert2';
 function App() {
 
   const [token, setToken] = useState('');
@@ -23,13 +23,25 @@ function App() {
 
     // Validación de contraseñas
     if (contrasena.trim() === '' || confirmarContrasena.trim() === '') {
-      window.alert('Campos vacíos...\nTodos los campos son obligatorios.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Campo vacio!',
+        text: 'Todos los campos son obligatorios.'
+      })
       return;
     } else if (contrasena !== confirmarContrasena) {
-      window.alert('Contraseñas no coinciden.\nPor favor, verifica y vuelve a intentarlo.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Contraseñas invalidas!',
+        text: 'Contraseñas no coinciden. Por favor, verifica y vuelve a intentarlo.'
+      })
       return;
     } else if (contrasena.length < 8) {
-      window.alert('Contraseña inválida.\nLa contraseña debe tener al menos 8 caracteres.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Contraseña invalida!',
+        text: 'Contraseña inválida la contraseña debe tener al menos 8 caracteres.'
+      })
       return;
     }
 
@@ -58,12 +70,20 @@ function App() {
       .then(data => {
         // Hacer algo con la respuesta del servidor
         console.log(data);
-        window.alert('Contraseña modificada con éxito.');
+        Swal.fire({
+          icon: 'success',
+          title: '¡Éxito!',
+          text: 'Contraseña modificada con éxito.',
+        });
       })
       .catch(error => {
         // Manejar el error de la solicitud
         console.error('Error:', error);
-        window.alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Ha ocurrido un error. Por favor, inténtalo de nuevo.',
+        });
       });
   };
   
