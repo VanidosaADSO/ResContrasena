@@ -95,7 +95,7 @@ function App() {
           <div className='container-logo'>
             <img className="content-logo" src={logo} alt="Logo de la empresa" />
           </div>
-          <p>REESTABLECER CONTRASEÑA</p>
+          <p className='title-recover-pass'>REESTABLECER CONTRASEÑA</p>
           <form id="formulario" className="input-inicio" onSubmit={handleSubmit}>
             <input
               type="password"
